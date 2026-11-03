@@ -15,4 +15,5 @@ await build({
 });
 await cp('index.html', `${output}/index.html`);
 await cp('index.html', `${output}/operador/index.html`);
+await cp('_redirects', `${output}/_redirects`);
 await cp('public', assets, { recursive: true });

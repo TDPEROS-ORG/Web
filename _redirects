@@ -1,0 +1,2 @@
+/api/* https://backend-production-2dca.up.railway.app/api/:splat 200!
+/operador /operador/index.html 200

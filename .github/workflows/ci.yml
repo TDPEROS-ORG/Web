@@ -39,6 +39,6 @@ jobs:
       - run: npm run build:netlify
       - name: Comprobar publicacion Netlify
         run: |
-          for path in index.html operador/index.html operador/assets/app.js operador/assets/app.css operador/assets/solar.jpg; do
+          for path in _redirects index.html operador/index.html operador/assets/app.js operador/assets/app.css operador/assets/solar.jpg; do
             test -s "netlify-dist/$path"
           done

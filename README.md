@@ -17,6 +17,8 @@ Sitio: `https://operator-profile.netlify.app/`.
 
 Netlify reenvia `/api/*` a la API de Railway. El navegador mantiene el mismo origen, las cookies seguras y CSRF; no necesita una URL absoluta ni cambios de CORS. El acceso admite usuario o correo; la creacion habitual de cuentas sigue requiriendo correo en la API.
 
+Para un despliegue manual, ejecuta `npm ci` y `npm run build:netlify`, y publica el contenido completo de `netlify-dist`. El archivo `_redirects` debe quedar junto a `index.html`, no dentro de `operador/assets`, para conservar el proxy aunque no se use una integracion Git.
+
 ## Railway
 
 1. Despliega primero MySQL y la API siguiendo [la guia completa](https://github.com/TDPEROS-ORG/Backend/blob/main/PASO_A_PASO_RAILWAY.md).
