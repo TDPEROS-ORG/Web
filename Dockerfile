@@ -7,6 +7,7 @@ RUN npm run build
 
 FROM nginx:1.28-alpine
 ENV PORT=8080
+ENV API_UPSTREAM=https://backend-production-2dca.up.railway.app
 ENV NGINX_ENVSUBST_FILTER="^(PORT|API_UPSTREAM)$"
 COPY nginx/default.conf.template /etc/nginx/templates/default.conf.template
 COPY index.html /usr/share/nginx/html/operador/index.html

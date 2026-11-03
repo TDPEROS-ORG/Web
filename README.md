@@ -1,5 +1,7 @@
 # Energia: web de operadores
 
+API activa: `https://backend-production-2dca.up.railway.app`. La imagen Docker ya incluye esta URL como `API_UPSTREAM` predeterminado; el navegador mantiene sus llamadas a `/api` mediante nginx. Si Railway ya tiene otra variable `API_UPSTREAM`, actualizala o eliminala: una variable del servicio prevalece sobre el valor de la imagen. Se necesita redesplegar Web para aplicar este cambio.
+
 Consola existente de operadores, empaquetada con esbuild y servida con nginx. API y base de datos estan en [Backend](https://github.com/TDPEROS-ORG/Backend); los clientes usan [Mobile](https://github.com/TDPEROS-ORG/Mobile).
 
 **REQUIERE CODIGO:** Dockerfile y proxy incluidos. **FUNCIONAL:** conectar este repo a Railway y configurar el dominio y la API.
