@@ -1,5 +1,7 @@
 node_modules/
 dist/
+netlify-dist/
+.netlify/
 .env
 .env.*
 !.env.example

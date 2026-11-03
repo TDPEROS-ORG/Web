@@ -4,7 +4,18 @@ API activa: `https://backend-production-2dca.up.railway.app`. La imagen Docker y
 
 Consola existente de operadores, empaquetada con esbuild y servida con nginx. API y base de datos estan en [Backend](https://github.com/TDPEROS-ORG/Backend); los clientes usan [Mobile](https://github.com/TDPEROS-ORG/Mobile).
 
-**REQUIERE CODIGO:** Dockerfile y proxy incluidos. **FUNCIONAL:** conectar este repo a Railway y configurar el dominio y la API.
+**REQUIERE CODIGO:** empaquetado y proxy para Railway o Netlify incluidos. **FUNCIONAL:** conectar este repo al proveedor elegido y configurar el dominio.
+
+## Netlify
+
+Sitio: `https://operator-profile.netlify.app/`.
+
+1. Conecta el repositorio `TDPEROS-ORG/Web`, rama `main`, con este directorio como raiz.
+2. Usa la configuracion versionada `netlify.toml`: compilacion `npm run build:netlify`, publicacion `netlify-dist` y Node 22.
+3. Redespliega desde el ultimo commit. No publiques la raiz del repositorio ni solo `index.html`: la compilacion genera HTML, JS, CSS e imagen en `/operador/assets/`.
+4. Comprueba `/`, `/operador`, `/operador/assets/app.js`, `/operador/assets/app.css` y `/api/ready`.
+
+Netlify reenvia `/api/*` a la API de Railway. El navegador mantiene el mismo origen, las cookies seguras y CSRF; no necesita una URL absoluta ni cambios de CORS. El acceso admite usuario o correo; la creacion habitual de cuentas sigue requiriendo correo en la API.
 
 ## Railway
 
@@ -32,4 +43,4 @@ Sustituye el upstream antes de ejecutar. Si 8082 esta ocupado, elige otro puerto
 
 Imagen Linux construida y prueba HTTP integrada con Backend temporal: HTML, JS, CSS, imagen, readiness, login de operador, cookie HttpOnly y rechazo sin CSRF, seguido de escritura autorizada. No se ha desplegado en Railway desde esta entrega.
 
-No se versionan `node_modules`, `dist`, `.env` ni secretos. La imagen construye los recursos desde fuentes y lockfile.
+No se versionan `node_modules`, `dist`, `netlify-dist`, `.netlify`, `.env` ni secretos. Ambos empaquetados construyen los recursos desde fuentes y lockfile.

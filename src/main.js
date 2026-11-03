@@ -49,7 +49,7 @@ function renderLogin(error = '') {
   root.innerHTML = `<main class="login-page"><div class="login-brand">${icon('sun')}<span>energía<span class="brand-divider">/</span><small>Operación</small></span></div>
     <div class="login-content"><img class="solar-photo" src="/operador/assets/solar.jpg" alt="Instalación de paneles solares" width="480" height="160">
       <div class="login-heading"><span class="eyebrow">ACCESO DE OPERADORES</span><h1>Iniciar sesión</h1></div>
-      <form id="login-form"><label>Correo electrónico<input name="email" type="email" autocomplete="username" placeholder="operador@correo.com" required maxlength="190"></label>
+      <form id="login-form"><label>Usuario o correo<input name="email" type="text" autocomplete="username" placeholder="operador" required maxlength="190"></label>
       <label>Contraseña<input name="password" type="password" autocomplete="current-password" placeholder="Tu contraseña" required maxlength="128"></label>
       <p class="form-error" role="alert">${esc(error)}</p><button class="primary" type="submit">Entrar ${icon('arrow-right')}</button></form>
       <div class="login-bottom">${icon('key-round')} Acceso autorizado</div></div><footer>ENERGÍA PARA CADA HOGAR</footer></main>`;

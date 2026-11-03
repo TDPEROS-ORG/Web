@@ -3,7 +3,8 @@
   "version": "1.0.0",
   "private": true,
   "scripts": {
-    "build": "esbuild src/main.js --bundle --minify --outfile=dist/app.js --loader:.css=css"
+    "build": "esbuild src/main.js --bundle --minify --outfile=dist/app.js --loader:.css=css",
+    "build:netlify": "node build-netlify.mjs"
   },
   "dependencies": {
     "chart.js": "^4.4.8",

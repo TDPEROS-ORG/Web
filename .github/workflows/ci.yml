@@ -26,3 +26,19 @@ jobs:
       - name: Limpiar contenedor
         if: always()
         run: docker rm -f energia-web-ci
+  netlify:
+    runs-on: ubuntu-latest
+    timeout-minutes: 5
+    steps:
+      - uses: actions/checkout@v4
+      - uses: actions/setup-node@v4
+        with:
+          node-version: '22'
+          cache: npm
+      - run: npm ci
+      - run: npm run build:netlify
+      - name: Comprobar publicacion Netlify
+        run: |
+          for path in index.html operador/index.html operador/assets/app.js operador/assets/app.css operador/assets/solar.jpg; do
+            test -s "netlify-dist/$path"
+          done
